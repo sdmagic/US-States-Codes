@@ -1,8 +1,13 @@
+-- We drop the table instead of IF NOT EXIST in CREATE TABLE
+-- statement because this script always loads the data from 
+-- scratch, AND if we make changes to the CREATE TABLE statement, 
+-- we need to drop it first anyways.
+
 DROP TABLE IF EXISTS states;
 
 CREATE TABLE states
 (
-    id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 ),
+    id integer NOT NULL GENERATED ALWAYS AS IDENTITY,
     abbreviation character(2) NOT NULL,
     statename character varying NOT NULL,
     PRIMARY KEY (id)
