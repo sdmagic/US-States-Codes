@@ -1,7 +1,7 @@
 -- US-States-Codes.sql
 
 -- US-States-Codes © 2024 by Stephen D, Cooper 
--- This work is licensed under Creative Commons Attribution 4.0 International 
+-- This work is licensed under the MIT License
 
 -- uuid-ossp is needed for uuid_generate_v4()
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
