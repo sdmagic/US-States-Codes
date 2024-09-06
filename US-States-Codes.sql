@@ -1,3 +1,8 @@
+-- US-States-Codes.sql
+
+-- uuid-ossp is needed for uuid_generate_v4()
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
 -- We drop the table instead of IF NOT EXIST in CREATE TABLE
 -- statement because this script always loads the data from 
 -- scratch, AND if we make changes to the CREATE TABLE statement, 
@@ -7,9 +12,12 @@ DROP TABLE IF EXISTS states;
 
 CREATE TABLE states
 (
-    id integer NOT NULL GENERATED ALWAYS AS IDENTITY,
+    id uuid NOT NULL DEFAULT uuid_generate_v4(),
     abbreviation character(2) NOT NULL,
     statename character varying NOT NULL,
+    dateentered timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    datemodified timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	moduser character varying NOT NULL DEFAULT CURRENT_USER,
     PRIMARY KEY (id)
 );
 
@@ -25,8 +33,7 @@ CREATE INDEX statename
 
 -- Insert data
 
-INSERT INTO states(
-	abbreviation, statename)
+INSERT INTO states (abbreviation, statename)
 	VALUES	('AK','Alaska'),
 			('AL','Alabama'),
 			('AR','Arkansas'),
