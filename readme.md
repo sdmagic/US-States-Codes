@@ -18,6 +18,7 @@ Included are the following files:
     - dateentered timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP
     - datemodified timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP
     - moduser character varying NOT NULL DEFAULT CURRENT_USER
+    - PRIMARY KEY (id)
   - Feel free to modify the table columns as needed
  
 ***
