@@ -1,4 +1,4 @@
-# US-States-Codes.CSV
+# US-States-Codes
 
 This is a complete list of US States and territories.
 
